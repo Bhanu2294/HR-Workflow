@@ -1,16 +1,127 @@
-# React + Vite
+# HR Workflow Designer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  What this is
 
-Currently, two official plugins are available:
+This project is a simple workflow builder designed for HR processes like onboarding, approvals, and automated steps. The idea was to create something that lets users visually design workflows instead of writing logic manually.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+You can drag nodes onto a canvas, connect them, configure their details, and run a basic simulation to see how the flow behaves.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+##  What I focused on
 
-## Expanding the ESLint configuration
+Instead of spending too much time on styling, I focused on:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Making interactions smooth (drag, connect, edit)
+* Keeping the code clean and modular
+* Handling edge cases (like deleting nodes, invalid workflows)
+* Building something that can scale if extended later
+
+---
+
+## Features
+
+### 🔹 Visual Workflow Builder
+
+* Drag and drop nodes onto the canvas
+* Connect nodes to define flow
+* Move and delete nodes easily
+
+---
+
+### 🔹 Different Node Types
+
+* Start
+* Task
+* Approval
+* Automated
+* End
+
+Each node behaves slightly differently and has its own configuration.
+
+---
+
+### 🔹 Dynamic Configuration Panel
+
+* Click a node → edit its details
+* Fields change based on node type
+* Updates reflect instantly
+
+---
+
+### 🔹 Run Workflow (Simulation)
+
+* Run button in sidebar
+* Basic checks:
+
+  * Must have a Start node
+  * Must have an End node
+  * Nodes should be connected
+* Shows a simple execution log
+
+---
+
+### 🔹 Utility Features
+
+* Clear entire canvas
+* Node selection resets properly after deletion
+* Icons added for better clarity
+
+---
+
+## How it’s structured
+
+I tried to keep things simple and organized:
+
+* `FlowCanvas.jsx` → Handles graph logic (drag, drop, connect)
+* `Sidebar.jsx` → Node list + actions (Run, Clear)
+* `NodePanel.jsx` → Editing node details
+* `nodes/` → Custom node UI components
+* `App.jsx` → Main state management
+
+State is managed at the top level so everything stays in sync.
+
+---
+
+##  Tech used
+
+* React (Vite)
+* React Flow
+* JavaScript
+
+---
+
+##  Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+##  Assumptions
+
+* No backend was required, so everything is handled on the frontend
+* Workflow execution is simulated (not actual processing)
+* UI is kept simple to focus on functionality
+
+---
+
+##  If I had more time
+
+I would improve this by:
+
+* Adding save/load workflow (JSON)
+* Better execution engine (actual graph traversal)
+* Inline validation on nodes
+* Undo/Redo functionality
+* Cleaner UI with a design system
+
+---
+
+##  Final note
+
+This project was a good exercise in handling interactive UIs and managing state across multiple components. I tried to keep the solution practical, readable, and easy to extend.
+
+---
