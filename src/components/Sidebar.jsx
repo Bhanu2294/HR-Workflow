@@ -1,3 +1,5 @@
+import run from "../assets/run.svg";
+import clear from "../assets/clear.svg";
 export default function Sidebar({ runWorkflow, clearCanvas }) {
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
@@ -53,23 +55,42 @@ export default function Sidebar({ runWorkflow, clearCanvas }) {
             background: "#007bff",
             color: "white",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8
           }}
         >
-           Run Workflow
+          <img
+            src={run}
+            alt="Run"
+            style={{ width: 14, height: 14 }}
+          />
+          <span>Run Workflow</span>
         </button>
         <button
-        onClick={clearCanvas}
-        style={{
-          width: "100%",
-          padding: 10,
-          background: "#dc3545",
-          color: "white",
-          border: "none",
-          cursor: "pointer"
-        }}
+          onClick={clearCanvas}
+          style={{
+            width: "100%",
+            padding: 10,
+            background: "#dc3545",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            marginTop: 8
+          }}
         >
-           Clear Canvas
+          <img
+            src={clear}
+            alt="Clear"
+            style={{ width: 14, height: 14 }}
+          />
+          <span>Clear Canvas</span>
         </button>
       </div>
     </div>

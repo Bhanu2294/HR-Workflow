@@ -9,8 +9,23 @@ export default function StartNode({ data }) {
       background: "white"
     }}>
       <Handle type="target" position={Position.Top} />
-      <img src={greendot} alt="Green Dot" style={{ width: 20, height: 20, marginRight: 10 }} />
-      {data.label || "Start"}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8
+          }}
+        >
+        <img
+          src={greendot}
+          alt="Green Dot"
+          style={{
+            width: 12,
+            height: 12
+          }}
+        />
+        <span>{data.label || "Start"}</span>
+        </div>
       <Handle type="source" position={Position.Bottom} />
     </div>
   );
